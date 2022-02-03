@@ -1,0 +1,1 @@
+(()=>{const e=document.getElementById("close"),t=document.getElementById("checkList");e.addEventListener("click",(e=>{t.style.display="none"})),e.addEventListener("mouseover",(t=>{e.style.backgroundColor="khaki"})),e.addEventListener("mouseleave",(t=>{e.style.backgroundColor="gray"}))})();
