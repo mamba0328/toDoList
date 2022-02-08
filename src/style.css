@@ -2,7 +2,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family:'Be Vietnam Pro', sans-serif;
 }
 html { 
     width: 100%;
@@ -63,6 +63,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: rgb(255, 187, 0);
+    cursor: pointer;
 }
 #addProject h1 { 
     font-size: 500%;
@@ -108,9 +109,17 @@ body {
 }
 
 #projectHead h1 { 
-    width: 80%;
+    width: 75%;
     color: white;
     margin-left : -5%;
+}
+
+#projectHead h2 { 
+    width: 5%;
+    color: white;
+    font-size: 300%;
+    margin-right : -10%;
+    cursor: pointer;
 }
 
 #projectBody{
@@ -128,13 +137,55 @@ body {
     border: 2px solid khaki;
     margin-top: 2%;
     background-color: white;
-    border-radius: 5px;
     display: flex;
-    align-items: center;
-    justify-content:space-between;
+    flex-direction: column;
+    border-radius: 5px;
+    justify-content: center;
     padding-left: 2%;
 }
 
+#toDoHead { 
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around; 
+}
+
+#taskList { 
+    height: fit-content;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#taskList h1 { 
+  font-size: 150%;
+}
+
+#taskList div div{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1%;
+}
+#taskList div div div {
+    width: 1em;
+    height: 1em;
+    min-width: 1em;
+    min-height: 1em;
+    background-color: rgb(233, 233, 10);
+    border:  1px solid rgb(233, 233, 10);
+}
+
+#task {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 .title { 
     width: 85%;
 }
@@ -149,7 +200,7 @@ body {
     height: 1.3em;
     min-width: 1.3em;
     min-height: 1.3em;
-    background-color: red;
+    background-color:red;
     border: 1px solid red;
     border-radius: 100%;
     margin: 2%;
@@ -176,88 +227,6 @@ body {
     margin: 2px;
 }
 
-#checkList { 
-    height: 100%;
-    width: 30%;
-    border-left: 3px solid khaki;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top:1%;
-}
-
-#addTask { 
-    width: 100%;
-    height: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-#addTask input { 
-    height: 25%;
-    width: 70%;
-}
-
-#addTask button { 
-    width: 15%
-}
-
-#tasksHolder { 
-    height: 80%;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-
-}
-
-.task {
-    width: 95%;
-    height: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 2%;
-    border: 2px solid rgb(245, 245, 245);
-    border-radius: 2px;
-}
-
-#complete { 
-    width: 1em;
-    height: 1em;
-    min-width: 1em;
-    min-height: 1em;
-    background-color: red;
-    border: 1px solid red;
-    border-radius: 100%;
-    margin: 2% 5% 2% 2%;
-}
-
-#closeHolder { 
-    width: 100%;
-    height: 3%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 2%;
-}
-
-#close { 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.5em;
-    height: 1.5em;
-    min-width: 1em;
-    min-height: 1em;
-    background-color: gray;
-    border: 1px solid gray;
-    border-radius: 100%;
-    color: white;
-    font-family: 'Be Vietnam Pro', sans-serif;
-}
 #logo {
     display: flex;
     flex-direction: column;
@@ -272,3 +241,25 @@ body {
      font-size: 400%;
      font-family: 'Be Vietnam Pro', sans-serif;
  }
+
+ #addTask{
+     margin: 1%;
+ }
+
+ #openTasks{
+     margin-left: 1%;
+     display: none;
+ }
+
+ .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    display: flex;
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }

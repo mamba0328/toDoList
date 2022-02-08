@@ -20,6 +20,10 @@ function addProject() {
       projectName.classList.add('projectName');
     projectName.innerText = 'Your project'; 
 
+    const addToDo = document.createElement('h2');
+      addToDo.setAttribute('id', 'addToDo');
+    addToDo.innerText = '+';
+
     const headSettings = document.createElement('div');
     headSettings.classList.add('settings');
     const dot11 = document.createElement('div');
@@ -33,9 +37,12 @@ function addProject() {
     headSettings.appendChild(dot13);
 
     //toDo section 
+    const toDoHead = document.createElement('div');
+    toDoHead.setAttribute('id','toDoHead');
+
     const toDo = document.createElement('div');
     toDo.classList.add('toDo');
-    
+
     const priorityBox = document.createElement('div');
     priorityBox.setAttribute('id','priorityBox');
     const priority = document.createElement('div');
@@ -49,6 +56,12 @@ function addProject() {
     date.classList.add('date');
     date.innerText = '28.03';
     
+    const openTasks = document.createElement('p')
+    const arrow = document.createElement('i')
+    arrow.classList.add('arrow','down');
+    openTasks.setAttribute('id','openTasks');
+    openTasks.appendChild(arrow)
+
     const settings = document.createElement('div');
     settings.classList.add('settings');
     const dot = document.createElement('div');
@@ -60,14 +73,30 @@ function addProject() {
     settings.appendChild(dot);
     settings.appendChild(dot1);
     settings.appendChild(dot2);
+
+    const addTask = document.createElement('h1');
+    addTask.setAttribute('id', 'addTask');
+    addTask.innerText = '+';
+
+    const taskList = document.createElement('div'); 
+    taskList.setAttribute('id', 'taskList');
+    taskList.style.display= 'none';
+
     
-    toDo.appendChild(priorityBox);
-    toDo.appendChild(title);
-    toDo.appendChild(date);
-    toDo.appendChild(settings);
+    toDoHead.appendChild(priorityBox);
+    toDoHead.appendChild(title);
+    toDoHead.appendChild(date);
+    toDoHead.appendChild(openTasks);
+    toDoHead.appendChild(addTask);
+    toDoHead.appendChild(settings);
+
+   
+    toDo.appendChild(toDoHead);
+    toDo.appendChild(taskList);
     
     projectHead.appendChild(projectPriorityBox);
     projectHead.appendChild(projectName);
+    projectHead.appendChild(addToDo);
     projectHead.appendChild(headSettings);
 
 
@@ -79,7 +108,4 @@ function addProject() {
     return projectHead;
     }
 
-    export  {
-      addProject, 
-
-    }
+    export default addProject
