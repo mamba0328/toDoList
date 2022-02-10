@@ -1,6 +1,12 @@
+class toDo { 
 
-function addToDo (e) { 
-    
+    constructor(){ 
+        this.name = 'Your to do';
+        this.priority = 'red';
+        this.deadline = new Date();
+    }
+
+    showToDo (e) { 
     const toDoHead = document.createElement('div');
     toDoHead.setAttribute('id','toDoHead');
 
@@ -15,10 +21,15 @@ function addToDo (e) {
 
     const title = document.createElement('h1');
     title.classList.add('title');
-    title.innerText = 'Your Task';
+    title.innerText = this.name;
     const date = document.createElement('h3');
     date.classList.add('date');
-    date.innerText = '28.03';
+
+    if((this.deadline.getMonth()+1) < 10){
+     date.innerText = (this.deadline.getDate()) + ".0" + (this.deadline.getMonth()+1) ;
+    } else { 
+     date.innerText = (this.deadline.getDate()) + "." + (this.deadline.getMonth()+1) ;
+    }
 
     const openTasks = document.createElement('p')
     const arrow = document.createElement('i')
@@ -59,4 +70,6 @@ function addToDo (e) {
     e.target.parentElement.nextSibling.appendChild(toDo);
 }
 
-export default addToDo; 
+}
+
+export default toDo; 
