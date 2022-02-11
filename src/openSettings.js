@@ -20,7 +20,7 @@ function openSettings (e) {
     orangeredPriorityBox.setAttribute('id','changePriorityBox');
     const orangeredPriority = document.createElement('div');
     orangeredPriority.classList.add('changePriority');
-    orangeredPriority.style.backgroundColor = 'orangered';
+    orangeredPriority.style.backgroundColor = 'indianred';
     orangeredPriorityBox.appendChild(orangeredPriority);
 
     const input = document.createElement('input');

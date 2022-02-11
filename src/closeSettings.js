@@ -1,29 +1,85 @@
 
+
+function newName(e, array) { 
+    const projectId = e.target.parentElement.parentElement.parentElement.id;
+        //name changing 
+      const projectName = document.createElement('h1');
+      projectName.classList.add('projectName');
+      let input =  e.target.parentElement.parentElement.lastChild.previousSibling.previousSibling.value; 
+
+      //checks were changes made or not 
+      if(input){
+         projectName.innerText = input;
+         for(let i=0;i<array.length;i++){ 
+            if(array[i].id == projectId){
+                array[i].changeName(projectName.innerText); 
+            }
+        }  
+      } else { 
+        for(let i=0;i<array.length;i++){ 
+            if(array[i].id == projectId){
+                projectName.innerText = array[i].name; 
+            }
+        }
+      }
+      
+      return projectName; 
+}
+
+function newPriority(e, array){  
+
+    const projectId = e.target.parentElement.parentElement.parentElement.id;
+    let chosenPriority = 0;  
+    const priorities = Array.from(e.target.parentElement.parentElement.querySelectorAll('.changePriority'));
+
+    //finds chosen
+    for(let i=0;i<priorities.length; i++) { 
+        if(priorities[i].style.border == '3px solid blue'){
+            priorities[i].style.backgroundColor == 'yellow' ? chosenPriority = 0 : 
+            priorities[i].style.backgroundColor == 'orange' ? chosenPriority = 1 : chosenPriority = 2;
+        }
+    }   
+    
+    //aplies to obj properties 
+    for(let i=0;i<array.length;i++){ 
+        if(array[i].id == projectId){
+            array[i].changePriority(chosenPriority); 
+            console.log(array[i]);
+        }
+    }
+
+}
+
 function confirmSettings(e, array){
     const projectId = e.target.parentElement.parentElement.parentElement.id;
 
-
+    //project priority
     const projectPriorityBox = document.createElement('div');
     projectPriorityBox.setAttribute('id','priorityBox');
     const projectPriority = document.createElement('div');
     projectPriority.classList.add('priority');
-    projectPriorityBox.appendChild(projectPriority);
     projectPriorityBox.style.margin = '0';
 
-    const projectName = document.createElement('h1');
-      projectName.classList.add('projectName');
-    projectName.innerText = e.target.parentElement.parentElement.lastChild.previousSibling.previousSibling.value; 
-    
+    newPriority(e, array);
+
+    //changes nodesPriority color
     for(let i=0;i<array.length;i++){ 
         if(array[i].id == projectId){
-            array[i].changeName(projectName.innerText); 
+            array[i].priority == 0 ? projectPriority.style.backgroundColor = 'yellow' : 
+            array[i].priority == 1 ? projectPriority.style.backgroundColor = 'orange' : projectPriority.style.backgroundColor = 'indianred';
         }
     }
+
+    projectPriorityBox.appendChild(projectPriority);
+
+    //project name
+    const projectName = newName(e, array); 
 
     const addToDo = document.createElement('h2');
       addToDo.setAttribute('id', 'addToDo');
     addToDo.innerText = '+';
 
+    //project settings
     const headSettings = document.createElement('div');
     headSettings.classList.add('settings');
     const dot11 = document.createElement('div');
@@ -43,6 +99,8 @@ function confirmSettings(e, array){
     e.target.parentElement.parentElement.appendChild(projectName);
     e.target.parentElement.parentElement.appendChild(addToDo);
     e.target.parentElement.parentElement.appendChild(headSettings);
+
+    console.log(array);
 }
 
 function cancelSettings(e, array){ 
@@ -52,6 +110,15 @@ function cancelSettings(e, array){
     projectPriorityBox.setAttribute('id','priorityBox');
     const projectPriority = document.createElement('div');
     projectPriority.classList.add('priority');
+
+        //changes nodesPriority color
+        for(let i=0;i<array.length;i++){ 
+            if(array[i].id == projectId){
+                array[i].priority == 0 ? projectPriority.style.backgroundColor = 'yellow' : 
+                array[i].priority == 1 ? projectPriority.style.backgroundColor = 'orange' : projectPriority.style.backgroundColor = 'indianred';
+            }
+        }
+        
     projectPriorityBox.appendChild(projectPriority);
     projectPriorityBox.style.margin = '0';
 

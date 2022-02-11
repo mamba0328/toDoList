@@ -1,4 +1,3 @@
-//import closeCheckList from "./closeCheckList"; //ads functionality to X button of checklist
 import project from "./addProject"; 
 import toDo from "./addToDo"; 
 import removeElement from "./remove";
@@ -60,26 +59,26 @@ projects.addEventListener('click', (e)=> {
 
 projects.addEventListener('mouseover', (e)=> {
     if(e.target.id == 'tickBox'){
-        e.target.firstChild.style.backgroundColor = 'red';
+        e.target.firstChild.style.border = '3px solid red';
       } else if (e.target.parentElement.id == 'tickBox'){ 
-          e.target.style.backgroundColor = 'red';
+          e.target.style.border = '3px solid red';
       }
 
       if(e.target.parentElement.id == 'priorityBox'){
-        e.target.style.backgroundColor = 'red';
+        e.target.style.border = '3px solid red';
       } 
 });
 
 
 projects.addEventListener('mouseout', (e)=> {
     if(e.target.id == 'tickBox'){
-      e.target.firstChild.style.backgroundColor = 'white';
+      e.target.firstChild.style.border = '1px solid black';
     } else if (e.target.parentElement.id == 'tickBox'){ 
-        e.target.style.backgroundColor = 'white';
+        e.target.style.border = '1px solid black';
     }
 
     if(e.target.parentElement.id == 'priorityBox'){
-        e.target.style.backgroundColor = 'rgb(21, 255, 0)';
+        e.target.style.border = '1px solid black';
       } 
 });
 
@@ -138,9 +137,22 @@ projects.addEventListener('click', (e) => {
 projects.addEventListener('click', (e) => { 
     if(e.target.className == "confirm"){
        confirmSettings(e, projectStorage);
-       console.log(projectStorage)
     }
     if(e.target.className == "cancel"){
         cancelSettings(e, projectStorage);
     }
+})
+
+//chagning priority 
+projects.addEventListener('click', (e) => { 
+    if(e.target.className == "changePriority"){
+        const priorities = Array.from(e.target.parentElement.parentElement.querySelectorAll('.changePriority'));
+
+        priorities.forEach(key => { 
+            key.style.border = 'solid  white 3px';
+        })
+        
+        e.target.style.border = '3px solid blue';         
+    }
+   
 })

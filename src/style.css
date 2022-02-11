@@ -191,7 +191,7 @@ body {
     height: 1.3em;
     min-width: 1.3em;
     min-height: 1.3em;
-    background-color:rgb(21, 255, 0);
+    background-color:orange;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 100%;
     margin: 2%;
@@ -292,7 +292,7 @@ body {
     min-width: 1.3em;
     min-height: 1.3em;
     background-color:rgb(21, 255, 0);
-    border: 1px solid rgb(255, 255, 255);
+    border: 3px solid rgb(255, 255, 255);
     border-radius: 100%;
     margin: 2%;
 }
